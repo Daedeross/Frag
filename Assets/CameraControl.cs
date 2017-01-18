@@ -5,8 +5,8 @@ public class CameraControl : MonoBehaviour {
 
     public GameObject Orbit;
     public GameObject Tilt;
-    public float OrbitSpeed = 400f;
-    public float TiltSpeed = 200f;
+    public float OrbitSpeed = 1f;
+    public float TiltSpeed = 1f;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +24,7 @@ public class CameraControl : MonoBehaviour {
                 var pos = transform.position;
                 if (pos.z > 0)
                 {
-                    pos.z = 0;
+                    pos.z = 0;                      
                     transform.position = pos;
                 }
             }
@@ -32,7 +32,7 @@ public class CameraControl : MonoBehaviour {
             {
                 float dx = OrbitSpeed * Input.GetAxis("Mouse X");
                 Orbit.transform.Rotate(0, dx, 0);
-                Tilt.transform.Rotate(dy, 0, 0);
+                Tilt.transform.Rotate(-dy*4, 0, 0);
             }
         }
 
